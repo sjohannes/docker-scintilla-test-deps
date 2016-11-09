@@ -10,6 +10,9 @@ RUN set -x \
 	&& apt-get install -y --no-install-recommends eatmydata \
 	&& eatmydata apt-get install -y --no-install-recommends \
 		g++ \
+		g++-mingw-w64-x86-64 \
+		libgtk2.0-dev \
+		libgtk-3-dev \
 		libpyside-dev \
 		libqt4-dev \
 		libshiboken-dev \
