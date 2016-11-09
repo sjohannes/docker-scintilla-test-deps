@@ -2,15 +2,20 @@
 # are permitted in any medium without royalty.
 # This file is offered as-is, without any warranty.
 
-FROM buildpack-deps:jessie
+FROM debian:jessie
 
 RUN set -x \
-	&& apt update \
-	&& apt install -y --no-install-recommends \
+	&& sed -i 's/deb\.debian\.org/httpredir.debian.org/' /etc/apt/sources.list \
+	&& apt-get update \
+	&& apt-get install -y --no-install-recommends eatmydata \
+	&& eatmydata apt-get install -y --no-install-recommends \
+		g++ \
 		libpyside-dev \
+		libqt4-dev \
 		libshiboken-dev \
+		make \
+		pkg-config \
 		python-pyside.qtgui \
-		qt4-default \
 		shiboken \
 		xvfb \
 	&& rm -rf /var/lib/apt/lists/*
