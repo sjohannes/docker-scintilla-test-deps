@@ -2,7 +2,7 @@
 # are permitted in any medium without royalty.
 # This file is offered as-is, without any warranty.
 
-FROM debian:jessie
+FROM debian:unstable-slim
 
 RUN set -x \
 	&& sed -i 's/deb\.debian\.org/httpredir.debian.org/' /etc/apt/sources.list \
